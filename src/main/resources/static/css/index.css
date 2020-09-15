@@ -1,0 +1,35 @@
+.m-padded-tb-mini {
+  padding-top: 0.2em !important;
+  padding-bottom: 0.2em !important;
+}
+
+.m-paddedp-tb-massive {
+  padding-top: 5em !important;
+  padding-bottom: 5em !important;
+}
+
+.m-img-middle {
+  display: block;
+  margin: 0 auto;
+}
+
+.m-nav-background-img {
+  background-image: url(http://i0.hdslb.com/bfs/archive/d90a4babaaad486a8bdca2f3323869a56d0abe76.png);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  /* margin-left: -250px; */
+  background-size: contain;
+  /* align-content: center; */
+  /* no-repeat 100%; */
+  /* background-image: "../img/nav"; */
+
+  /* background-color: black; */
+  width: 100%;
+  height: 150px;
+  display: block;
+}
+/* 
+.m-nav-img-center {
+  align-content: center;
+  height: 300px;
+} */
