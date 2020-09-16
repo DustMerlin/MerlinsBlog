@@ -1,6 +1,43 @@
+.m-next-button {
+  /*padding增大会将组件撑大，margin是外边距、调整位置，border是边界，但也可以设置厚度 */
+  padding-left: 2em !important;
+  padding-right: 2em !important;
+  margin-left: 1em !important;
+  margin-right: 1em !important;
+}
+
 .m-padded-tb-mini {
   padding-top: 0.2em !important;
   padding-bottom: 0.2em !important;
+}
+
+.m-padded-tb-tiny {
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
+}
+
+.m-padded-tb-small {
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+}
+
+.m-padded-tb {
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+}
+
+.m-padded-tb-large {
+  padding-top: 2em !important;
+  padding-bottom: 2em !important;
+}
+.m-padded-tb-big {
+  padding-top: 3em !important;
+  padding-bottom: 3em !important;
+}
+
+.m-padded-tb-huge {
+  padding-top: 4em !important;
+  padding-bottom: 4em !important;
 }
 
 .m-paddedp-tb-massive {
@@ -14,17 +51,19 @@
 }
 
 .m-nav-background-img {
-  background-image: url(http://i0.hdslb.com/bfs/archive/d90a4babaaad486a8bdca2f3323869a56d0abe76.png);
+  /* background-image: url(http://i0.hdslb.com/bfs/archive/d90a4babaaad486a8bdca2f3323869a56d0abe76.png); */
+  background-image: url(../img/nav.png);
   background-repeat: no-repeat;
   background-position-x: center;
   /* margin-left: -250px; */
-  background-size: contain;
+  background-size: cover;
   /* align-content: center; */
   /* no-repeat 100%; */
   /* background-image: "../img/nav"; */
 
   /* background-color: black; */
   width: 100%;
+  /* height: 150px; */
   height: 150px;
   display: block;
 }
@@ -33,3 +72,12 @@
   align-content: center;
   height: 300px;
 } */
+
+.m-opacity-mini {
+  opacity: 0.8 !important;
+}
+/* display */
+
+.m-inline-block {
+  display: inline-block;
+}
