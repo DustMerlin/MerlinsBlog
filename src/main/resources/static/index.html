@@ -14,8 +14,9 @@
   <body>
     <nav class="ui inverted attached segment m-padded-tb-mini">
       <div class="ui container">
-        <div class="ui inverted secondary menu">
-          <h2 class="ui teal header item">Blog</h2>
+        <!-- stackable 属性完成移动端的适配——使内部组件可堆砌 -->
+        <div class="ui inverted secondary stackable menu">
+          <h2 class="ui teal header item">Merlin's Magic Den</h2>
           <a href="#" class="item"><i class="home icon"></i>首页</a>
           <a href="#" class="item"><i class="idea icon"></i>分类</a>
           <a href="#" class="item"><i class="tags icon"></i>标签</a>
@@ -39,7 +40,7 @@
 
     <div class="m-padded-tb-large">
       <div class="ui container">
-        <div class="ui grid">
+        <div class="ui stackable grid">
           <div class="eleven wide column">
             <!-- attached 可以把相邻的连接在一起，但是需要相邻的都添加这个class样式 -->
             <!-- <div class="ui attached segment"> -->
@@ -110,7 +111,7 @@
               <div class="ui grid">
                 <div class="eleven wide column">
                   <h3 class="ui header">如何激发人类的共情</h3>
-                  <p>
+                  <p class="">
                     Semantic 2.4 brings a new components for handling content
                     loading ui placeholder, as well as a new type of segment
                     used to reserve space for content: ui placeholder
@@ -170,7 +171,109 @@
           </div>
           <!-- right column -->
           <div class="five wide column">
-            <div class="ui segment"></div>
+            <!-- 分类栏 -->
+            <div class="ui segments">
+              <div class="ui secondary segment">
+                <div class="ui two column grid">
+                  <div class="column"><i class="idea icon"></i>分类</div>
+                  <div class="column right aligned">
+                    <a href="#" target="_blank"
+                      >more <i class="angle double right icon"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui">
+              <div class="ui fluid vertical menu">
+                <a href="#" class="item"
+                  >感知
+                  <div class="ui green left pointing label">13</div></a
+                >
+                <a href="#" class="item"
+                  >感知
+                  <div class="ui green left pointing label">13</div></a
+                >
+                <a href="#" class="item"
+                  >感知
+                  <div class="ui green left pointing label">13</div></a
+                >
+              </div>
+            </div>
+            <!-- 标签栏 -->
+            <div class="ui segments m-margin-top-large">
+              <div class="ui secondary segment">
+                <div class="ui two column grid">
+                  <div class="column"><i class="tag icon"></i>标签</div>
+                  <div class="column right aligned">
+                    <a href="#" target="_blank"
+                      >more <i class="angle double right icon"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui m-margin-left-small">
+              <a
+                href="#"
+                target="_blank"
+                class="ui black right pointing label m-margin-tags"
+                >实践
+                <div class="detail">|&nbsp&nbsp&nbsp13</div>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="ui blue right pointing label m-margin-tags"
+                >实践
+                <div class="detail">|&nbsp&nbsp&nbsp13</div>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="ui orange right pointing label m-margin-tags"
+                >实践
+                <div class="detail">|&nbsp&nbsp&nbsp13</div>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="ui green right pointing label m-margin-tags"
+                >实践
+                <div class="detail">|&nbsp&nbsp&nbsp13</div>
+              </a>
+            </div>
+            <!-- /标签栏 -->
+
+            <!-- 最新推荐 -->
+            <div class="ui segments m-margin-top-large">
+              <div class="ui secondary segment">
+                <i class="bookmark icon"></i>最新推荐
+              </div>
+              <div class="ui segment">
+                <a href="" class="m-black-thick">用户故事</a>
+              </div>
+              <div class="ui segment">
+                <a href="" class="m-black-thick">用户故事</a>
+              </div>
+              <div class="ui segment">
+                <a href="" class="m-black-thick">用户故事</a>
+              </div>
+            </div>
+            <!-- /最新推荐 -->
+
+            <!-- 关注我 -->
+            <h4 class="ui horizontal divider header m-margin-top-large">
+              扫码关注我
+            </h4>
+            <div class="ui centered card" style="width: 11em">
+              <img
+                src="./img/profile.png"
+                alt=""
+                class="ui rounded image m-img-middle"
+              />
+            </div>
+            <!-- /关注我 -->
           </div>
         </div>
       </div>
@@ -217,8 +320,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
-    <script
-      sec="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
   </body>
 </html>
