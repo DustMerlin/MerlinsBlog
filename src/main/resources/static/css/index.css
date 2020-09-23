@@ -1,3 +1,7 @@
+body {
+  background-image: url(../img/full-bloom.png);
+}
+
 .m-next-button {
   /*padding增大会将组件撑大，margin是外边距、调整位置，border是边界，但也可以设置厚度 */
   padding-left: 2em !important;
@@ -125,4 +129,27 @@
 .m-black-thick {
   color: #333 !important;
   font-weight: 600 !important;
+}
+
+/* 绝对位置指定menu菜单展开按钮的位置，用于移动端的适配 */
+.m-nav-menu-button {
+  position: absolute;
+  top: 0.2em;
+  right: 0.5em;
+}
+
+.m-mobile-show {
+  display: none !important;
+}
+
+/* 隐藏菜单属性 */
+
+@media screen and (max-width: 768px) {
+  .m-mobile-hide {
+    display: none !important;
+  }
+
+  .m-mobile-show {
+    display: block !important;
+  }
 }

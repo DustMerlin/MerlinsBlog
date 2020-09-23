@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset=1 "UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="x-UA-Compatible" content="ie=edgel" />
     <link
@@ -17,12 +17,23 @@
         <!-- stackable 属性完成移动端的适配——使内部组件可堆砌 -->
         <div class="ui inverted secondary stackable menu">
           <h2 class="ui teal header item">Merlin's Magic Den</h2>
-          <a href="#" class="item"><i class="home icon"></i>首页</a>
-          <a href="#" class="item"><i class="idea icon"></i>分类</a>
-          <a href="#" class="item"><i class="tags icon"></i>标签</a>
-          <a href="#" class="item"><i class="info icon"></i>关于我</a>
-          <a href="#" class="item"></a>
-          <div class="right item">
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="home icon"></i>首页</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="idea icon"></i>分类</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="tags icon"></i>标签</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="copy icon"></i>归档</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="info icon"></i>关于我</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"></a>
+          <div class="right item m-mobile-hide m-menu-item">
             <div class="ui icon input">
               <!-- <div class="ui icon inverted transparent input"> -->
               <input type="text" placeholder="Searching. ..." />
@@ -31,6 +42,12 @@
           </div>
         </div>
       </div>
+      <a
+        href="#"
+        class="ui menu toggle black icon button m-nav-menu-button m-mobile-show"
+      >
+        <i class="sidebar icon"></i>
+      </a>
     </nav>
 
     <div>
@@ -60,7 +77,8 @@
             <!-- attached 可以把相邻的连接在一起，但是需要相邻的都添加这个class样式 -->
             <!-- <div class="ui attached segment"></div> -->
             <div class="ui segment">
-              <div class="ui grid">
+              <!-- mobile reversed 在移动端中，将布局的顺序反转 先显示 <div class="five">，再显示<div class="eleven">-->
+              <div class="ui mobile reversed stackable grid">
                 <div class="eleven wide column">
                   <h3 class="ui header">如何激发人类的共情</h3>
                   <p>
@@ -100,54 +118,6 @@
                   <a href="#" target="_blank">
                     <img
                       src="https://picsum.photos/1440/1000"
-                      alt=""
-                      class="ui rounded image"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="ui segment">
-              <div class="ui grid">
-                <div class="eleven wide column">
-                  <h3 class="ui header">如何激发人类的共情</h3>
-                  <p class="">
-                    Semantic 2.4 brings a new components for handling content
-                    loading ui placeholder, as well as a new type of segment
-                    used to reserve space for content: ui placeholder
-                    segment......
-                  </p>
-                  <div class="ui grid">
-                    <div class="eleven wide column">
-                      <div class="ui horizontal link list">
-                        <div class="item">
-                          <!-- avatar 圆形小头像 -->
-                          <img
-                            src="./img/profile.png"
-                            alt=""
-                            class="ui avatar image"
-                          />
-                          <div class="content">
-                            <a href="#" class="header">Merlin Dust</a>
-                          </div>
-                        </div>
-                        <!-- i标签之间最好不要写东西，不然可能会显示奇怪 -->
-                        <div class="item">
-                          <i class="calendar icon"></i>2020.9.16
-                        </div>
-                        <div class="item"><i class="eye icon"></i>123</div>
-                      </div>
-                    </div>
-                    <div class="right aligned five wide column">
-                      <a href="#" target="_blank" class="ui label">人性</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="five wide column aligned center">
-                  <a href="#" target="_blank">
-                    <img
-                      src="https://picsum.photos/1440/1000?123"
                       alt=""
                       class="ui rounded image"
                     />
@@ -281,7 +251,7 @@
     <footer class="ui inverted vertical segment m-paddedp-tb-massive">
       <div class="ui center aligned container">
         <!-- center aligned 内部居中 -->
-        <div class="ui inverted divided grid">
+        <div class="ui inverted divided stackable grid">
           <!-- grid 一行分为16份 ,inverted divided 显示分隔线-->
           <div class="three wide column center">
             <img
@@ -321,5 +291,10 @@
 
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script>
+      $(".menu.toggle").click(function () {
+        $(".m-menu-item").toggleClass("m-mobile-hide");
+      });
+    </script>
   </body>
 </html>
