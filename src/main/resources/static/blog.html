@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="x-UA-Compatible" content="ie=edgel" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>博客详情</title>
+  </head>
+  <body>
+    <nav class="ui inverted attached segment m-padded-tb-mini">
+      <div class="ui container">
+        <!-- stackable 属性完成移动端的适配——使内部组件可堆砌 -->
+        <div class="ui inverted secondary stackable menu">
+          <h2 class="ui teal header item">Merlin's Magic Den</h2>
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="home icon"></i>首页</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="idea icon"></i>分类</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="tags icon"></i>标签</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="copy icon"></i>归档</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="info icon"></i>关于我</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"></a>
+          <div class="right item m-mobile-hide m-menu-item">
+            <div class="ui icon input">
+              <!-- <div class="ui icon inverted transparent input"> -->
+              <input type="text" placeholder="Searching. ..." />
+              <i class="search link icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        href="#"
+        class="ui menu toggle black icon button m-nav-menu-button m-mobile-show"
+      >
+        <i class="sidebar icon"></i>
+      </a>
+    </nav>
+
+    <div>
+      <div class="m-nav-background-img"></div>
+    </div>
+
+    <!-- 中间内容 -->
+    <div class="m-container-small m-padded-tb-big">
+      <div class="ui container">
+        <div class="ui top attached segment">
+          <div class="ui horizontal link list">
+            <div class="item">
+              <!-- avatar 圆形小头像 -->
+              <img src="./img/profile.png" alt="" class="ui avatar image" />
+              <div class="content">
+                <a href="#" class="header">Merlin Dust</a>
+              </div>
+            </div>
+            <!-- i标签之间最好不要写东西，不然可能会显示奇怪 -->
+            <div class="item"><i class="calendar icon"></i>2020.9.16</div>
+            <div class="item"><i class="eye icon"></i>123</div>
+          </div>
+        </div>
+        <div class="ui attached segment">
+          <img src="./img/wheat.png" alt="" class="ui fluid rounded image" />
+        </div>
+        <div class="ui attached segment">
+          <div class="ui right aligned basic segment">
+            <div class="ui orange basic label">原创</div>
+          </div>
+
+          <h2 class="ui center aligned header">刻意练习</h2>
+          <div id="content" class="m-padded-lr-response">
+            <br />
+            balabala
+          </div>
+
+          <!-- 标签 -->
+          <div class="m-padded-lr-response">
+            <div class="ui green left pointing label">方法论</div>
+          </div>
+
+          <!-- 赞赏 -->
+          <div class="ui center aligned basic segment">
+            <button class="ui payButton basic red circular button">赞赏</button>
+          </div>
+
+          <!-- 隐藏图片点击显示 -->
+          <div class="ui paidArea following popup transition hidden">
+            <div class="ui orange basic label">
+              <div class="ui images" style="font-size: inherit !important">
+                <div class="image">
+                  <img
+                    src="./img/profile.png"
+                    alt=""
+                    class="ui rounded bordered image"
+                    style="width: 120px"
+                  />
+                  <div>支付宝</div>
+                </div>
+                <div class="image">
+                  <img
+                    src="./img/profile.png"
+                    alt=""
+                    class="ui rounded bordered image"
+                    style="width: 120px"
+                  />
+                  <div>微信</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 博客信息 -->
+        <div class="ui attached positive message">
+          <div class="ui middle aligned grid">
+            <div class="eleven wide column">
+              <ui class="list">
+                <li>~</li>
+                <li>~</li>
+                <li>~</li>
+                <li>~</li>
+              </ui>
+            </div>
+            <div class="five wide column">
+              <img
+                src="./img/profile.png"
+                alt=""
+                class="ui right floated rounded border image"
+                style="width: 110px"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- 留言区域 -->
+        <div class="ui bottom attached segment">
+          <div class="ui blue segment">
+            <div class="ui comments">
+              <h3 class="ui dividing header">Comments</h3>
+              <div class="comment">
+                <a class="avatar">
+                  <img src="./img/profile.png" />
+                </a>
+                <div class="content">
+                  <a class="author">Matt</a>
+                  <div class="metadata">
+                    <span class="date">Today at 5:42PM</span>
+                  </div>
+                  <div class="text">How artistic!</div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+              </div>
+              <div class="comment">
+                <a class="avatar">
+                  <img src="./img/profile.png" />
+                </a>
+                <div class="content">
+                  <a class="author">Elliot Fu</a>
+                  <div class="metadata">
+                    <span class="date">Yesterday at 12:30AM</span>
+                  </div>
+                  <div class="text">
+                    <p>
+                      This has been very useful for my research. Thanks as well!
+                    </p>
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+                <div class="comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="./img/profile.png" />
+                    </a>
+                    <div class="content">
+                      <a class="author">Jenny Hess</a>
+                      <div class="metadata">
+                        <span class="date">Just now</span>
+                      </div>
+                      <div class="text">Elliot you are always so right :)</div>
+                      <div class="actions">
+                        <a class="reply">Reply</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="comment">
+                <a class="avatar">
+                  <img src="./img/profile.png" />
+                </a>
+                <div class="content">
+                  <a class="author">Joe Henderson</a>
+                  <div class="metadata">
+                    <span class="date">5 days ago</span>
+                  </div>
+                  <div class="text">Dude, this is awesome. Thanks so much</div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 评论提交 -->
+              <form class="ui reply form">
+                <div class="field">
+                  <textarea
+                    name="content"
+                    placeholder="请输入评论信息··· ···"
+                  ></textarea>
+                </div>
+                <div class="fields">
+                  <div class="field m-mobile-fillwide m-margin-top-small">
+                    <div class="ui left icon input">
+                      <i class="user icon"></i>
+                      <input type="text" name="nickname" placeholder="昵称" />
+                    </div>
+                  </div>
+                  <div class="field m-mobile-fillwide m-margin-top-small">
+                    <div class="ui left icon input">
+                      <i class="mail icon"></i>
+                      <input type="text" name="email" placeholder="邮箱" />
+                    </div>
+                  </div>
+                  <div class="field m-mobile-fillwide m-margin-top-small">
+                    <div
+                      class="ui blue labeled submit icon button m-mobile-fillwide"
+                    >
+                      <i class="icon edit"></i> 评论提交
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- <div class="ui form"></div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部信息 -->
+    <footer class="ui inverted vertical segment m-paddedp-tb-massive">
+      <div class="ui center aligned container">
+        <!-- center aligned 内部居中 -->
+        <div class="ui inverted divided stackable grid">
+          <!-- grid 一行分为16份 ,inverted divided 显示分隔线-->
+          <div class="three wide column center">
+            <img
+              src="./img/profile.png"
+              alt=""
+              class="ui rounded image m-img-middle"
+              style="width: 110px"
+            />
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <div class="inverted link list">
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <div class="inverted link list">
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+            </div>
+          </div>
+
+          <div class="seven wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <p>~~~~~~~~~~~~~~~~~~~~~~</p>
+          </div>
+        </div>
+
+        <div class="ui inverted section divider"></div>
+        <p>Copyright @ 2019 - 2020 Designed by Merlin Dust</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+
+    <script>
+      $(".menu.toggle").click(function () {
+        $(".m-menu-item").toggleClass("m-mobile-hide");
+      });
+
+      // $("#m-payButton").popup({
+      //   popup: $(".m-paidArea.popup"),
+      //   on: "click",
+      //
+      // });
+
+      $(".payButton.button").popup({
+        popup: $(".paidArea.popup"),
+        on: "click",
+        position: "bottom center",
+      });
+    </script>
+  </body>
+</html>
