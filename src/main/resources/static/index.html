@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"
     />
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/allPageCss.css" />
     <title>首页</title>
   </head>
   <body>
@@ -78,7 +78,9 @@
             <!-- <div class="ui attached segment"></div> -->
             <div class="ui segment">
               <!-- mobile reversed 在移动端中，将布局的顺序反转 先显示 <div class="five">，再显示<div class="eleven">-->
-              <div class="ui mobile reversed stackable grid">
+              <div
+                class="ui mobile reversed stackable grid padded m-mobile-lr-clear"
+              >
                 <div class="eleven wide column">
                   <h3 class="ui header">如何激发人类的共情</h3>
                   <p>
@@ -291,8 +293,10 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <!-- jquery 的顺序也有影响，可能semantic中也使用了jquery,所以jquery得在semantic的前边 -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+
     <script>
       $(".menu.toggle").click(function () {
         $(".m-menu-item").toggleClass("m-mobile-hide");

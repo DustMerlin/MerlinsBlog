@@ -157,9 +157,9 @@ body {
   display: none !important;
 }
 
-/* 隐藏菜单属性 */
-
+/* 小屏幕移动端属性 */
 @media screen and (max-width: 768px) {
+  /* 隐藏菜单属性 */
   .m-mobile-hide {
     display: none !important;
   }
@@ -173,7 +173,20 @@ body {
     padding-right: 0 !important;
   }
 
+  .m-mobile-lr-clear {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   .m-mobile-fillwide {
     width: 100% !important;
   }
+}
+
+/* shadow */
+.m-shadow {
+  /* -webkit-box-shadow 为了适配浏览器 */
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 2) !important ;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 2) !important ;
 }
