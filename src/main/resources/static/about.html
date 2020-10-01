@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="x-UA-Compatible" content="ie=edgel" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"
+    />
+    <link rel="stylesheet" href="./css/allPageCss.css" />
+    <title>关于我</title>
+  </head>
+  <body>
+    <nav class="ui inverted attached segment m-padded-tb-mini m-shadow">
+      <div class="ui container">
+        <!-- stackable 属性完成移动端的适配——使内部组件可堆砌 -->
+        <div class="ui inverted secondary stackable menu">
+          <h2 class="ui teal header item">Merlin's Magic Den</h2>
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="home icon"></i>首页</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="idea icon"></i>分类</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="tags icon"></i>标签</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+            ><i class="copy icon"></i>归档</a
+          >
+          <a href="#" class="active item m-mobile-hide m-menu-item"
+            ><i class="info icon"></i>关于我</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"></a>
+          <div class="right item m-mobile-hide m-menu-item">
+            <div class="ui icon input">
+              <!-- <div class="ui icon inverted transparent input"> -->
+              <input type="text" placeholder="Searching. ..." />
+              <i class="search link icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        href="#"
+        class="ui menu toggle black icon button m-nav-menu-button m-mobile-show"
+      >
+        <i class="sidebar icon"></i>
+      </a>
+    </nav>
+
+    <div>
+      <div class="m-nav-background-img"></div>
+    </div>
+
+    <!-- 中间内容 -->
+    <div class="m-container m-padded-tb-big">
+      <div class="ui container">
+        <div class="ui grid">
+          <div class="eleven wide column">
+            <div class="ui segment">
+              <img src="./img/profile.png" alt="" class="ui rounded image" />
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui top attached segment">
+              <div class="ui header">关于我</div>
+            </div>
+            <div class="ui attached segment">
+              <p>
+                Merlin's Blog 爱好编程，喜欢折腾，是个整体飞来飞去的快乐的糊涂蛋
+              </p>
+            </div>
+
+            <div class="ui attached segment">
+              <div class="ui orange label m-margin-tags-small">写作</div>
+              <div class="ui orange label m-margin-tags-small">思考</div>
+              <div class="ui orange label m-margin-tags-small">运动</div>
+              <div class="ui orange label m-margin-tags-small">编程</div>
+            </div>
+            <div class="ui bottom attached segment">
+              <div class="ui teal label m-margin-tags-small">JavaScript</div>
+              <div class="ui teal label m-margin-tags-small">Java</div>
+              <div class="ui teal label m-margin-tags-small">Spring</div>
+              <div class="ui teal label m-margin-tags-small">MySQL</div>
+            </div>
+            <div class="ui attached segment">
+              <a
+                href="https://github.com/DustMerlin"
+                class="ui circular icon button m-margin-tags-small"
+                ><i class="github icon"></i
+              ></a>
+              <a
+                href=""
+                class="ui wechat-button circular icon button m-margin-tags-small"
+                ><i class="weixin icon"></i
+              ></a>
+              <a
+                href=""
+                class="ui qq circular icon button m-margin-tags-small"
+                data-content="1723978237"
+                data-position="bottom center"
+                ><i class="qq icon"></i
+              ></a>
+            </div>
+
+            <div class="ui wechat-qr flowing popup transition hidden">
+              <img
+                src="./img/profile.png"
+                alt=""
+                class="ui rounded image"
+                style="width: 150px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部信息 -->
+    <footer class="ui inverted vertical segment m-paddedp-tb-massive">
+      <div class="ui center aligned container">
+        <!-- center aligned 内部居中 -->
+        <div class="ui inverted divided stackable grid">
+          <!-- grid 一行分为16份 ,inverted divided 显示分隔线-->
+          <div class="three wide column center">
+            <img
+              src="./img/profile.png"
+              alt=""
+              class="ui rounded image m-img-middle"
+              style="width: 110px"
+            />
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <div class="inverted link list">
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <div class="inverted link list">
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+            </div>
+          </div>
+
+          <div class="seven wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <p>~~~~~~~~~~~~~~~~~~~~~~</p>
+          </div>
+        </div>
+
+        <div class="ui inverted section divider"></div>
+        <p>Copyright @ 2019 - 2020 Designed by Merlin Dust</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+
+    <script>
+      $(".menu.toggle").click(function () {
+        $(".m-menu-item").toggleClass("m-mobile-hide");
+      });
+
+      $(".wechat-button").popup({
+        popup: $(".wechat-qr"),
+        position: "bottom center",
+      });
+
+      $(".qq").popup();
+    </script>
+  </body>
+</html>
