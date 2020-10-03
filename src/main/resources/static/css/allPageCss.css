@@ -21,6 +21,10 @@ body {
 }
 
 /* margin */
+.m-margin-left-mini {
+  margin-left: 0.2em !important;
+}
+
 .m-margin-left-small {
   margin-left: 0.5em !important;
 }
