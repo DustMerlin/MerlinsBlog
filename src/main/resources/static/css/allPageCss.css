@@ -140,6 +140,18 @@ m-padded-small {
 .m-opacity-mini {
   opacity: 0.8 !important;
 }
+
+.m-opacity {
+  opacity: 0.5 !important;
+}
+
+.m-opacity-large {
+  opacity: 0.3 !important;
+}
+
+.m-opacity-massive {
+  opacity: 0.1 !important;
+}
 /* display */
 
 .m-inline-block {
@@ -209,6 +221,17 @@ m-padded-small {
   .m-mobile-fillwide {
     width: 100% !important;
   }
+
+  /* 回到顶部的猫，只露出一半的脑袋 */
+  #box {
+    position: fixed;
+    width: 70px;
+    height: 539px;
+    top: -520px;
+    right: -3em !important;
+    z-index: 100;
+    /*	-webkit-animation:mov 10s ;*/
+  }
 }
 
 /* shadow */
@@ -225,7 +248,7 @@ m-padded-small {
 }
 
 .m-absolute-position {
-  bottom: 10em !important;
+  bottom: 30em !important;
   right: 0 !important;
   z-index: 1;
 }

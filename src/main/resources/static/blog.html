@@ -65,7 +65,10 @@
     </div>
 
     <!-- 中间内容 -->
-    <div class="m-container-small m-padded-tb-big animate__animated">
+    <div
+      id="m-waypoint"
+      class="m-container-small m-padded-tb-big animate__animated"
+    >
       <div class="ui container">
         <div class="ui top attached segment">
           <div class="ui horizontal link list">
@@ -809,31 +812,38 @@
     </div>
 
     <!-- 浮动跳转菜单 -->
-    <div class="m-fixed m-absolute-position m-padded">
+    <div
+      id="m-toobar"
+      class="m-fixed m-absolute-position m-padded animate__animated animate__jackInTheBox"
+    >
       <div class="ui vertical icon buttons">
-        <a href="#m-footer" class="ui icon button"
-          ><i class="chevron down icon"></i
-        ></a>
-        <button class="ui m-toc blue button">目录</button>
-        <a href="#head" class="ui button">正文</a>
-        <a href="#m-appreciate" class="ui button">赞赏</a>
-        <a href="#comment-container" class="ui button">留言</a>
-        <button class="ui wechat-button green button">
-          <i class="weixin icon"></i>
+        <button id="open-hidden-menu" class="ui icon button m-opacity">
+          <i class="chevron down icon"></i>
         </button>
-        <button
-          class="ui qq blue button"
-          data-content="1723978237"
-          data-position="left center"
-        >
-          <i class="qq icon"></i>
-        </button>
-        <a href="#" class="ui icon button"><i class="chevron up icon"></i></a>
+        <!-- hidden 有没有都能起作用 -->
+        <div class="ui open-hidden-menu-area flowing popup transition hidden">
+          <button class="ui m-toc blue button">目录</button>
+          <a href="#head" class="ui button">正文</a>
+          <a href="#m-appreciate" class="ui button">赞赏</a>
+          <a href="#comment-container" class="ui button">留言</a>
+          <button class="ui wechat-button green button">
+            <i class="weixin icon"></i>
+          </button>
+          <button
+            class="ui qq blue button"
+            data-content="1723978237"
+            data-position="left center"
+          >
+            <i class="qq icon"></i>
+          </button>
+          <a href="#" class="ui icon button"><i class="chevron up icon"></i></a>
+        </div>
       </div>
     </div>
 
     <!-- 弹出微信二维码 -->
     <div
+      id="qrcode"
       class="ui wechat-qr flowing popup transition hidden m-padded-mini"
       style="width: 150px"
     >
@@ -903,6 +913,8 @@
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
     <script src="./lib/prism/prism.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+    <script src="./lib/qrcode/qrcode.min.js"></script>
+    <script src="./lib/waypoints/jquery.waypoints.min.js"></script>
 
     <script>
       $(".menu.toggle").click(function () {
@@ -919,6 +931,13 @@
         popup: $(".toc-container.popup"),
         on: "click",
         position: "right center",
+      });
+
+      $("#open-hidden-menu").popup({
+        popup: $(".open-hidden-menu-area.popup"),
+        on: "click",
+
+        position: "bottom center",
       });
 
       tocbot.init({
@@ -950,12 +969,39 @@
         });
       });
 
+      // $('#topCat').click(function(){
+      //   $(window).scrollTo(0,500)
+      // })
+
       $(".wechat-button").popup({
         popup: $(".wechat-qr"),
         position: "left center",
       });
 
       $(".qq").popup();
+
+      // 二维码
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: "http://DustMerlin.github.io",
+        width: 120,
+        height: 120,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+
+      // 滚动检测到相应位置弹出 想要的内容
+      var waypoint = new Waypoint({
+        element: document.getElementById("m-waypoint"),
+        handler: function (direction) {
+          // alert("You have scrolled to a thing" + direction);
+          if (direction == "down") {
+            $("#m-toobar").show(200);
+          } else {
+            $("#m-toobar").hide(500);
+          }
+        },
+      });
     </script>
   </body>
 </html>
