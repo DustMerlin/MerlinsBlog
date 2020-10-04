@@ -15,6 +15,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css"
+    />
     <title>博客详情</title>
   </head>
   <body>
@@ -61,9 +65,7 @@
     </div>
 
     <!-- 中间内容 -->
-    <div
-      class="m-container-small m-padded-tb-big animate__animated animate__fadeInTopLeft"
-    >
+    <div class="m-container-small m-padded-tb-big animate__animated">
       <div class="ui container">
         <div class="ui top attached segment">
           <div class="ui horizontal link list">
@@ -79,16 +81,25 @@
             <div class="item"><i class="eye icon"></i>123</div>
           </div>
         </div>
-        <div class="ui attached segment">
-          <img src="./img/wheat.png" alt="" class="ui fluid rounded image" />
-        </div>
+        <!-- 愚蠢的设计 -->
+        <!-- <div class="ui attached segment">
+          <img
+            src="./img/wheat.png"
+            alt=""
+            class="ui fluid rounded image"
+            style="height: 400px; width: 800px"
+          />
+        </div> -->
         <div class="ui attached segment">
           <div class="ui right aligned basic segment">
             <div class="ui orange basic label">原创</div>
           </div>
 
-          <h2 class="ui center aligned header">刻意练习</h2>
-          <div id="content" class="typo typo-selection m-padded-lr-response">
+          <h2 id="head" class="ui center aligned header">刻意练习</h2>
+          <div
+            id="content"
+            class="typo typo-selection m-padded-lr-response js-toc-content"
+          >
             <h2 id="tagline" class="serif">
               一致化浏览器排版效果，构建最适合中文阅读的网页排版
             </h2>
@@ -634,12 +645,12 @@
           </div>
 
           <!-- 赞赏 -->
-          <div class="ui center aligned basic segment">
+          <div id="m-appreciate" class="ui center aligned basic segment">
             <button class="ui payButton basic red circular button">赞赏</button>
           </div>
 
           <!-- 隐藏图片点击显示 -->
-          <div class="ui paidArea following popup transition hidden">
+          <div class="ui paidArea flowing popup transition hidden">
             <div class="ui orange basic label">
               <div class="ui images" style="font-size: inherit !important">
                 <div class="image">
@@ -688,7 +699,7 @@
         </div>
 
         <!-- 留言区域 -->
-        <div class="ui bottom attached segment">
+        <div id="comment-container" class="ui bottom attached segment">
           <div class="ui blue segment">
             <div class="ui comments">
               <h3 class="ui dividing header">Comments</h3>
@@ -797,8 +808,57 @@
       </div>
     </div>
 
+    <!-- 浮动跳转菜单 -->
+    <div class="m-fixed m-absolute-position m-padded">
+      <div class="ui vertical icon buttons">
+        <a href="#m-footer" class="ui icon button"
+          ><i class="chevron down icon"></i
+        ></a>
+        <button class="ui m-toc blue button">目录</button>
+        <a href="#head" class="ui button">正文</a>
+        <a href="#m-appreciate" class="ui button">赞赏</a>
+        <a href="#comment-container" class="ui button">留言</a>
+        <button class="ui wechat-button green button">
+          <i class="weixin icon"></i>
+        </button>
+        <button
+          class="ui qq blue button"
+          data-content="1723978237"
+          data-position="left center"
+        >
+          <i class="qq icon"></i>
+        </button>
+        <a href="#" class="ui icon button"><i class="chevron up icon"></i></a>
+      </div>
+    </div>
+
+    <!-- 弹出微信二维码 -->
+    <div
+      class="ui wechat-qr flowing popup transition hidden m-padded-mini"
+      style="width: 150px"
+    >
+      <img src="./img/profile.png" alt="" class="ui rounded image" />
+    </div>
+
+    <!-- 猫猫跳转顶部按钮 -->
+    <div id="box">
+      <div id="toTopRope"></div>
+      <img id="topCat" src="https://static.missevan.com/system/topscroll.png" />
+    </div>
+
+    <!-- 弹出所生成目录 -->
+    <div
+      class="ui toc-container flowing popup transition hidden"
+      style="width: 300px"
+    >
+      <ol class="js-toc"></ol>
+    </div>
+
     <!-- 底部信息 -->
-    <footer class="ui inverted vertical segment m-paddedp-tb-massive">
+    <footer
+      id="m-footer"
+      class="ui inverted vertical segment m-paddedp-tb-massive"
+    >
       <div class="ui center aligned container">
         <!-- center aligned 内部居中 -->
         <div class="ui inverted divided stackable grid">
@@ -842,6 +902,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
     <script src="./lib/prism/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 
     <script>
       $(".menu.toggle").click(function () {
@@ -853,6 +914,48 @@
         on: "click",
         position: "bottom center",
       });
+
+      $(".m-toc.button").popup({
+        popup: $(".toc-container.popup"),
+        on: "click",
+        position: "right center",
+      });
+
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: ".js-toc",
+        // Where to grab the headings to build the table of contents.
+        contentSelector: ".js-toc-content",
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: "h1, h2, h3",
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+      });
+
+      $(function () {
+        // alert($(document).scrollTop());
+        $(window).scroll(function () {
+          var top = $(document).scrollTop();
+          if (top > 520 && top < 1000) {
+            // console.log(top);
+            var x = top - 1000;
+            $("#box").css("top", x);
+          } else if (top < 520) {
+            $("#box").css("top", "-520px");
+          }
+        });
+
+        $("#topCat").click(function () {
+          $("body,html").animate({ scrollTop: 0 }, 1000);
+        });
+      });
+
+      $(".wechat-button").popup({
+        popup: $(".wechat-qr"),
+        position: "left center",
+      });
+
+      $(".qq").popup();
     </script>
   </body>
 </html>

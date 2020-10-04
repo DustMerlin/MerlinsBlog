@@ -57,6 +57,18 @@ body {
   margin-right: 1.5em !important;
 }
 
+m-padded-mini {
+  padding: 0.2em !important;
+}
+
+m-padded-small {
+  padding: 0.5em !important;
+}
+
+.m-padded {
+  padding: 1em !important;
+}
+
 .m-padded-tb-mini {
   padding-top: 0.2em !important;
   padding-bottom: 0.2em !important;
@@ -205,4 +217,38 @@ body {
   -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 2) !important ;
 
   box-shadow: 0 2px 10px rgba(0, 0, 0, 2) !important ;
+}
+
+/* 绝对定位布局 */
+.m-fixed {
+  position: fixed !important;
+}
+
+.m-absolute-position {
+  bottom: 10em !important;
+  right: 0 !important;
+  z-index: 1;
+}
+
+/* catch-cat css */
+#box {
+  position: fixed;
+  width: 70px;
+  height: 539px;
+  top: -520px;
+  right: 4em;
+  z-index: 100;
+  /*	-webkit-animation:mov 10s ;*/
+}
+
+#toTopRope {
+  background: url(https://static.missevan.com/system/rope.png);
+  width: 70px;
+  height: 441px;
+}
+
+#topCat {
+  height: 98px;
+  width: 70px;
+  cursor: pointer;
 }
