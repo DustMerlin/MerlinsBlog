@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/merlinsblog?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 9911
+  jpa:
+    hibernate:
+      ddl-auto: none
+      # update 会改变表结构，最好使用 none 慎重 ！！！ 注意
+      show-sql: true
+#日志项目结构，可以在level： debug
+logging:
+  level:
+    root: warn
+    com.merlin: info
+  file: log/blog-pro.log
