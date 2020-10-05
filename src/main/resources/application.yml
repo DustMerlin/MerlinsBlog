@@ -9,11 +9,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-# update 会改变表结构，最好使用 none 慎重 ！！！ 注意
       show-sql: true
-#日志项目结构，可以在level： debug
+
 logging:
   level:
     root: info
-    com.merlin: debug
-  file: log/blog.log
+    com.merlin.merlinsblog: debug
+  file:
+    path: .\log\
+#  pattern:
+##    console: {yyyy-MM-dd} [%thread] %-5level %logger{50} - %msg%n
+#    file: clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){yellow}
+#    com.merlin.merlinsblog: trace
