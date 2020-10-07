@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <!-- fragment名字后的()可以传递参数(接受) -->
+  <head th:fragment="head(title)">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="x-UA-Compatible" content="ie=edgel" />
+    <title th:replace="${title}"></title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/css/typo.css"
+      th:href="@{/css/typo.css}"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/css/allPageCss.css"
+      th:href="@{/css/allPageCss.css}"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/lib/prism/prism.css"
+      th:href="@{/lib/prism/prism.css}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css"
+    />
+  </head>
+
+  <body>
+    <!-- 导航栏 -->
+    <nav
+      th:fragment="nav(n)"
+      class="ui inverted attached segment m-padded-tb-mini m-shadow"
+    >
+      <div class="ui container">
+        <!-- stackable 属性完成移动端的适配——使内部组件可堆砌 -->
+        <div class="ui inverted secondary stackable menu">
+          <h2 class="ui teal header item">Merlin's Magic Den</h2>
+          <a
+            href="#"
+            class="item m-mobile-hide m-menu-item"
+            th:classappend="${n==1} ? 'active' "
+            ><i class="home icon"></i>首页</a
+          >
+          <a
+            href="#"
+            class="item m-mobile-hide m-menu-item"
+            th:classappend="${n==2} ? 'active' "
+            ><i class="idea icon"></i>分类</a
+          >
+          <a
+            href="#"
+            class="item m-mobile-hide m-menu-item"
+            th:classappend="${n==3} ? 'active' "
+            ><i class="tags icon"></i>标签</a
+          >
+          <a
+            href="#"
+            class="item m-mobile-hide m-menu-item"
+            th:classappend="${n==4} ? 'active' "
+            ><i class="copy icon"></i>归档</a
+          >
+          <a
+            href="#"
+            class="item m-mobile-hide m-menu-item"
+            th:classappend="${n==5} ? 'active' "
+            ><i class="info icon"></i>关于我</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"></a>
+          <div class="right item m-mobile-hide m-menu-item">
+            <div class="ui icon input">
+              <!-- <div class="ui icon inverted transparent input"> -->
+              <input type="text" placeholder="Searching. ..." />
+              <i class="search link icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        href="#"
+        class="ui menu toggle black icon button m-nav-menu-button m-mobile-show"
+      >
+        <i class="sidebar icon"></i>
+      </a>
+    </nav>
+
+    <!-- 导航栏下方大图 -->
+    <div th:fragment="nav-img">
+      <div class="m-nav-background-img"></div>
+    </div>
+
+    <!-- 底部信息 -->
+    <footer
+      th:fragment="footer"
+      id="m-footer"
+      class="ui inverted vertical segment m-paddedp-tb-massive"
+    >
+      <div class="ui center aligned container">
+        <!-- center aligned 内部居中 -->
+        <div class="ui inverted divided stackable grid">
+          <!-- grid 一行分为16份 ,inverted divided 显示分隔线-->
+          <div class="three wide column center">
+            <img
+              src="./img/profile.png"
+              alt=""
+              class="ui rounded image m-img-middle"
+              style="width: 110px"
+            />
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <div class="inverted link list">
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <div class="inverted link list">
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+              <a href="#" class="tiem">~</a>
+            </div>
+          </div>
+
+          <div class="seven wide column">
+            <h4 class="ui inverted header">最新博客</h4>
+            <p>~~~~~~~~~~~~~~~~~~~~~~</p>
+          </div>
+        </div>
+
+        <div class="ui inverted section divider"></div>
+        <p>Copyright @ 2019 - 2020 Designed by Merlin Dust</p>
+      </div>
+    </footer>
+
+    <!-- js 代码引入 -->
+    <th:block th:fragment="script">
+      <script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"
+      ></script>
+      <script
+        src="../static/lib/prism/prism.js"
+        th:href="@{/lib/prism/prism.js}"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"
+      ></script>
+      <script
+        src="../static/lib/qrcode/qrcode.min.js"
+        th:href="@{/lib/qrcode/qrcode.min.js}"
+      ></script>
+      <script
+        src="../static/lib/waypoints/jquery.waypoints.min.js"
+        th:href="@{/lib/waypoints/jquery.waypoints.min.js}"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"
+      ></script>
+    </th:block>
+  </body>
+</html>

@@ -1,68 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta http-equiv="x-UA-Compatible" content="ie=edgel" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"
-    />
-    <link rel="stylesheet" href="./css/typo.css" />
-    <link rel="stylesheet" href="./css/allPageCss.css" />
-    <link rel="stylesheet" href="./lib/prism/prism.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css"
-    />
-    <title>博客详情</title>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head th:replace="fragment::head(~{::title})">
+    <title>首页</title>
   </head>
   <body>
-    <nav class="ui inverted attached segment m-padded-tb-mini m-shadow">
-      <div class="ui container">
-        <!-- stackable 属性完成移动端的适配——使内部组件可堆砌 -->
-        <div class="ui inverted secondary stackable menu">
-          <h2 class="ui teal header item">Merlin's Magic Den</h2>
-          <a href="#" class="item m-mobile-hide m-menu-item"
-            ><i class="home icon"></i>首页</a
-          >
-          <a href="#" class="item m-mobile-hide m-menu-item"
-            ><i class="idea icon"></i>分类</a
-          >
-          <a href="#" class="item m-mobile-hide m-menu-item"
-            ><i class="tags icon"></i>标签</a
-          >
-          <a href="#" class="item m-mobile-hide m-menu-item"
-            ><i class="copy icon"></i>归档</a
-          >
-          <a href="#" class="item m-mobile-hide m-menu-item"
-            ><i class="info icon"></i>关于我</a
-          >
-          <a href="#" class="item m-mobile-hide m-menu-item"></a>
-          <div class="right item m-mobile-hide m-menu-item">
-            <div class="ui icon input">
-              <!-- <div class="ui icon inverted transparent input"> -->
-              <input type="text" placeholder="Searching. ..." />
-              <i class="search link icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a
-        href="#"
-        class="ui menu toggle black icon button m-nav-menu-button m-mobile-show"
-      >
-        <i class="sidebar icon"></i>
-      </a>
-    </nav>
-
-    <div>
-      <div class="m-nav-background-img"></div>
-    </div>
+    <nav th:replace="fragment::nav(1)"></nav>
+    <div th:replace="fragment::nav-img"></div>
 
     <!-- 中间内容 -->
     <div
@@ -811,110 +754,11 @@
       </div>
     </div>
 
-    <!-- 浮动跳转菜单 -->
-    <div
-      id="m-toobar"
-      class="m-fixed m-absolute-position m-padded animate__animated animate__jackInTheBox"
-    >
-      <div class="ui vertical icon buttons">
-        <button id="open-hidden-menu" class="ui icon button m-opacity">
-          <i class="chevron down icon"></i>
-        </button>
-        <!-- hidden 有没有都能起作用 -->
-        <div class="ui open-hidden-menu-area flowing popup transition hidden">
-          <button class="ui m-toc blue button">目录</button>
-          <a href="#head" class="ui button">正文</a>
-          <a href="#m-appreciate" class="ui button">赞赏</a>
-          <a href="#comment-container" class="ui button">留言</a>
-          <button class="ui wechat-button green button">
-            <i class="weixin icon"></i>
-          </button>
-          <button
-            class="ui qq blue button"
-            data-content="1723978237"
-            data-position="left center"
-          >
-            <i class="qq icon"></i>
-          </button>
-          <a href="#" class="ui icon button"><i class="chevron up icon"></i></a>
-        </div>
-      </div>
-    </div>
+    <footer th:replace="fragment::footer"></footer>
 
-    <!-- 弹出微信二维码 -->
-    <div
-      id="qrcode"
-      class="ui wechat-qr flowing popup transition hidden m-padded-mini"
-      style="width: 150px"
-    >
-      <img src="./img/profile.png" alt="" class="ui rounded image" />
-    </div>
+    <!-- /*/ <th:block th:replace="fragment::script"> /*/ -->
 
-    <!-- 猫猫跳转顶部按钮 -->
-    <div id="box">
-      <div id="toTopRope"></div>
-      <img id="topCat" src="https://static.missevan.com/system/topscroll.png" />
-    </div>
-
-    <!-- 弹出所生成目录 -->
-    <div
-      class="ui toc-container flowing popup transition hidden"
-      style="width: 300px"
-    >
-      <ol class="js-toc"></ol>
-    </div>
-
-    <!-- 底部信息 -->
-    <footer
-      id="m-footer"
-      class="ui inverted vertical segment m-paddedp-tb-massive"
-    >
-      <div class="ui center aligned container">
-        <!-- center aligned 内部居中 -->
-        <div class="ui inverted divided stackable grid">
-          <!-- grid 一行分为16份 ,inverted divided 显示分隔线-->
-          <div class="three wide column center">
-            <img
-              src="./img/profile.png"
-              alt=""
-              class="ui rounded image m-img-middle"
-              style="width: 110px"
-            />
-          </div>
-          <div class="three wide column">
-            <h4 class="ui inverted header">最新博客</h4>
-            <div class="inverted link list">
-              <a href="#" class="tiem">~</a>
-              <a href="#" class="tiem">~</a>
-              <a href="#" class="tiem">~</a>
-            </div>
-          </div>
-          <div class="three wide column">
-            <h4 class="ui inverted header">最新博客</h4>
-            <div class="inverted link list">
-              <a href="#" class="tiem">~</a>
-              <a href="#" class="tiem">~</a>
-              <a href="#" class="tiem">~</a>
-            </div>
-          </div>
-
-          <div class="seven wide column">
-            <h4 class="ui inverted header">最新博客</h4>
-            <p>~~~~~~~~~~~~~~~~~~~~~~</p>
-          </div>
-        </div>
-
-        <div class="ui inverted section divider"></div>
-        <p>Copyright @ 2019 - 2020 Designed by Merlin Dust</p>
-      </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-    <script src="./lib/prism/prism.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
-    <script src="./lib/qrcode/qrcode.min.js"></script>
-    <script src="./lib/waypoints/jquery.waypoints.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <!-- /*/ </th:block> /*/ -->
 
     <script>
       $(".menu.toggle").click(function () {

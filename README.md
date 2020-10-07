@@ -9,3 +9,8 @@
 <pre class="line-numbers" data-start="-5"><code class="language-css" ></code></pre>
 
 ```
+
+    如果static 下的资源出现异常，需要去用th:src = "@{/img/profile.jpg}" 指定资源路径
+    但目前因为idea 移动文件 勾选了 search reference 选项还没出错误
+    
+
