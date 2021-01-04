@@ -13,6 +13,7 @@ public class Type {
     private Long id;
     private String name;
 
+    // 此处一（类型）对多（博客），在一端使用mappedBy = "type",type被维护，blog 维护
     @OneToMany(mappedBy = "type")
     private List<Blog> blogs = new ArrayList<>();
 

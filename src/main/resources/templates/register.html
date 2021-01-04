@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili</title>
+    <link rel="stylesheet" type="text/css" href="./css/register.css" th:href="@{/css/register.css}"/>
+    <script>
+
+		function overEvent(){
+			document.getElementById("r2lup").innerHTML=
+			"<img id=\"phone\" src=\"./img/phone.png\" th:href=\"@{/img/phone.png\}\" onmouseout=\"outEvent()\"/>";
+		}
+
+		function outEvent(){
+			document.getElementById("r2lup").innerHTML=
+			"<div id=\"banner\"><img src=\"./img/smallphone.png\"/></div><div id=\"code\"><img src=\"./img/code.png\" onmouseover=\"overEvent()\" /></div>";
+		}
+
+<!--		function clickEvent(){-->
+<!--				window.location.href="index.html";-->
+<!--			}-->
+
+
+		</script>
+</head>
+<body>
+<div id="head">
+
+</div>
+
+<div id="body">
+    <div id="bili-img">
+        <img src="./img/bili.png" th:href="@{/img/bili.png}"/>
+    </div>
+
+    <div id="row1">
+        <img src="./img/reg.jpg" th:href="@{/img/reg.jpg}"/>
+    </div>
+
+    <br><br>
+
+    <div id="row2">
+        <!--二维码 -->
+        <div id="row2left">
+            <div id="r2lup">
+                <div id="banner">
+                    <img src="./img/smallphone.png" th:href="@{/img/smallphone.png}"/>
+                </div>
+
+                <div id="code">
+                    <img src="./img/code.png" th:href="@{/img/code.png}" onmouseover="overEvent()" />
+                </div>
+            </div>
+
+            <div id="r2ldown">
+                <br>
+                <p id="r2p"><font color="black" size="5">扫描二维码登录</font></p>
+                <p>
+                    <font color="darkgray" size="3">请使用</font>
+                    <a href="https://app.bilibili.com/" >哔哩哔哩客户端</a>
+                </p>
+                <p><font color="darkgray" size="3">扫码登录</font></p>
+                <p><font color="darkgray" size="3">或扫码下载APP</font></p>
+            </div>
+        </div>
+
+        <!--注册信息-->
+
+            <div id="row2right">
+                <form method="post" th:action="@{/login}">
+                    <div class="npdiv">
+                        <input type="text"  name="username" placeholder="你的手机号/邮箱" />
+                    </div>
+
+                    <div class="npdiv">
+                        <input type="password" name="password"  placeholder="密码" />
+                    </div>
+
+                    <div class="r25">
+                        <button class="r251" title="登录" >登录</button>
+                        <a class="r252" title="注册" href="index.html">注册</a>
+                    </div>
+
+                </form>
+                <br><br><br><br>
+                <div id="r2rd">
+                    <p class="r241">
+                        <input type="checkbox" id="check-row-before" value="on">
+                        <label for="check-row-before">记住我</label>
+                        <font color="darkgray" size="1">不是自己的电脑上不要勾选此项</font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="index.html"><font color="deepskyblue" size="1">无法验证？</font></a>
+                        <a href="index.html"><font color="deepskyblue" size="1">忘记密码？</font></a>
+                    </p>
+                </div>
+
+
+            </div>
+
+    </div>
+
+</div>
+</div>
+
+
+
+</body>
+</html>

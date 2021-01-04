@@ -13,6 +13,7 @@ public class Tag {
     private Long id;
     private String name;
 
+    //多对多的关系，需要制定一方为关系被维护方，map翻译为映射
     @ManyToMany(mappedBy = "tags")
     private List<Blog> blogs = new ArrayList<>();
 

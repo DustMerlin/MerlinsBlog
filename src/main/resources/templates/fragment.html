@@ -44,7 +44,7 @@
       <div class="ui container">
         <!-- stackable 属性完成移动端的适配——使内部组件可堆砌 -->
         <div class="ui inverted secondary stackable menu">
-          <h2 class="ui teal header item">Merlin's Magic Den</h2>
+          <h2 class="ui teal header item">博客</h2>
           <a
             href="#"
             class="item m-mobile-hide m-menu-item"
@@ -88,6 +88,51 @@
       <a
         href="#"
         class="ui menu toggle black icon button m-nav-menu-button m-mobile-show"
+      >
+        <i class="sidebar icon"></i>
+      </a>
+    </nav>
+
+    <!-- 后端管理 menu(n) -->
+    <nav
+            th:fragment="menu(n)"
+            class="ui inverted attached segment m-padded-tb-mini m-shadow"
+    >
+      <div class="ui container">
+        <!-- stackable 属性完成移动端的适配——使内部组件可堆砌 -->
+        <div class="ui inverted secondary stackable menu">
+          <h2 class="ui teal header item">博客后台管理</h2>
+          <a href="#" class="active item m-mobile-hide m-menu-item"
+          ><i class="home icon" th:classappend="${n==1} ? 'active' "></i
+          >博客</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+          ><i class="idea icon" th:classappend="${n==2} ? 'active' "></i
+          >分类</a
+          >
+          <a href="#" class="item m-mobile-hide m-menu-item"
+          ><i class="tags icon" th:classappend="${n==3} ? 'active' "></i
+          >标签</a
+          >
+
+          <div class="right menu m-mobile-hide m-menu-item">
+            <div class="ui dropdown item">
+              <div class="text">
+                <img class="ui avatar image" src="../img/profile.png" />
+                Merlin Dust
+              </div>
+              <i class="dropdown icon"></i>
+              <!-- i标签内不能写东西，第二次！！！！！！！！！！！！！ -->
+              <div class="menu">
+                <a href="" th:href="@{/admin/logout}" class="item">注销</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+              href="#"
+              class="ui menu toggle black icon button m-nav-menu-button m-mobile-show"
       >
         <i class="sidebar icon"></i>
       </a>

@@ -20,6 +20,17 @@ public class IndexController {
 
         System.out.println("----------index----------");
 //        System.out.println(id + ":" + name);
-        return "fragtest";
+//        return "index";
+//        return "classification";
+//          return "tag";
+        return "blog";
+//        return
     }
 }
+
+
+
+
+
+
+

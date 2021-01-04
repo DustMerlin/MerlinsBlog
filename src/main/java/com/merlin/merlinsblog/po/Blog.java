@@ -33,6 +33,7 @@ public class Blog {
     @ManyToOne
     private Type type;
 
+    //级联关系，新增tag 也会保存到数据库中
     @ManyToMany(cascade = {CascadeType.PERSIST})
     private List<Tag> tags = new ArrayList<>();
 

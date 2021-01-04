@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  widows: 100%;
 }
 
 a {
@@ -36,7 +35,7 @@ a {
 #row2 {
   margin: auto;
   width: 970px;
-  height: 450px;
+  height: 400px;
 }
 
 #row2left {
@@ -49,7 +48,7 @@ a {
 #row2right {
   position: relative;
   width: 452px;
-  height: 400px; /*319*/
+  height: 330px; /*319*/
   display: inline-block;
 
   /*margin: auto;*/
@@ -177,6 +176,17 @@ a {
 }
 
 #row2right > div > input {
+  width: 410px;
+  height: 35px;
+}
+
+.npdiv {
+  height: 65px;
+  width: 440px;
+  padding-left: 40px;
+}
+
+.npdiv > input {
   width: 410px;
   height: 35px;
 }
