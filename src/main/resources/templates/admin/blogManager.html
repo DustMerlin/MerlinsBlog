@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -8,7 +8,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"
     />
-    <link rel="stylesheet" href="../css/allPageCss.css" />
+    <link
+      rel="stylesheet"
+      href="../../static/css/allPageCss.css"
+      th:href="@{/css/allPageCss.css}"
+    />
     <title>后台管理</title>
   </head>
   <body>
@@ -64,22 +68,40 @@
       </div>
     </div>
 
+    <input type="hidden" name="page" />
+
     <!-- 中间内容 -->
     <div class="m-container-small m-padded-tb-big">
       <div class="ui container">
-        <form action="" method="post" class="ui segment form">
+        <!-- <form action="" method="post" class="ui secondary segment form"> -->
+        <div class="ui secondary segment form">
           <div class="inline fields">
             <div class="field">
-              <input type="text" name="title" placeholder="标题" />
+              <input
+                type="text"
+                name="title"
+                placeholder="标题"
+                class="input"
+              />
             </div>
             <div class="field">
               <div class="ui selection dropdown">
-                <input type="hidden" name="type" />
+                <input type="hidden" name="typeId" />
                 <i class="dropdown icon"></i>
                 <div class="default text">分类</div>
                 <div class="menu">
-                  <div class="item" data-value="1">错误日志</div>
-                  <div class="item" data-value="2">开发手册</div>
+                  <div
+                    th:each=" type : ${types}"
+                    class="item"
+                    data-value="1"
+                    th:data-value="${type.id}"
+                    th:text="${type.name}"
+                  >
+                    错误日志
+                  </div>
+                  <!-- /*
+                    <div class="item" data-value="2">开发手册</div> 
+                  */-->
                 </div>
               </div>
             </div>
@@ -90,40 +112,55 @@
               </div>
             </div>
             <div class="field">
-              <button class="ui right teal mini button">
+              <button
+                type="button"
+                id="search-btn"
+                class="ui right teal mini button"
+              >
                 <i class="search icon"></i>
                 搜索
               </button>
             </div>
           </div>
-        </form>
+        </div>
+        <div id="table-container">
+          <!-- compact 使表格间隙不那么大 -->
+          <table class="ui compact table" th:fragment="bloglist">
+            <thead class="center aligned">
+              <tr>
+                <th></th>
+                <th>标题</th>
+                <th>类型</th>
+                <th>推荐</th>
+                <th>更新时间表</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody class="center aligned">
+              <tr th:each="blog,iterStat : ${page.content}">
+                <td th:text="${iterStat.count}">1</td>
+                <td th:text="${blog.title}">刻意练习</td>
+                <td th:text="${blog.type.name}">认知升级</td>
+                <td th:text="${blog.recommend} ? '是' : '否' ">是</td>
+                <td>2020-10-20 20:10</td>
+                <td>
+                  <a
+                    href=""
+                    th:href="@{/admin/blog/{id}/input(id=${blog.id})}"
+                    class="ui mini green button"
+                    >编辑</a
+                  >
+                  <a
+                    href=""
+                    th:href="@{/admin/blog/{id}/delete(id=${blog.id})}"
+                    class="ui mini red button"
+                    >删除</a
+                  >
+                </td>
+              </tr>
+            </tbody>
 
-        <table class="ui table">
-          <thead class="center aligned">
-            <tr>
-              <th></th>
-              <th>标题</th>
-              <th>类型</th>
-              <th>推荐</th>
-              <th>更新时间表</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody class="center aligned">
-            <tr>
-              <td>1</td>
-              <td>刻意练习</td>
-              <td>认知升级</td>
-              <td>是</td>
-              <td>2020-10-20 20:10</td>
-              <td>
-                <a href="" class="ui mini green button">编辑</a>
-                <a href="" class="ui mini red button">删除</a>
-              </td>
-            </tr>
-          </tbody>
-
-          <!-- <tfoot>
+            <!-- <tfoot>
             <th colspan="6">
               <div class="ui right floated pagination menu">
                 <a href="" class="icon item">
@@ -139,16 +176,32 @@
               </div>
             </th>
           </tfoot> -->
-        </table>
+          </table>
+        </div>
       </div>
 
       <!-- 底部按钮 -->
       <div class="ui bottom m-margin-top">
         <div class="ui middle aligned two column grid">
           <div class="column">
-            <!-- basic 属性可以使 颜色反转，要么是该颜色的字、边框，要么是该颜色的按钮 <a href="#" class="ui teal basic button m-next-button">上一页</a> -->
-            <a href="#" class="ui teal button m-next-button">上一页</a>
-            <a href="#" class="ui orange button m-next-button">下一页</a>
+            <!-- <div class="column" th:if="${page.totalPages}>1 >判断满足显示，不满足不显示 -->
+            <!-- basic 属性可以使 颜色反转，要么是该颜色的字、边框，
+              要么是该颜色的按钮 <a href="#" class="ui teal basic button m-next-button">上一页</a> -->
+            <!-- th :attr = "data-value"  自定义类型-->
+            <a
+              class="ui teal button m-next-button"
+              onclick="page(this)"
+              th:attr="data-page=${(page.number)-1}"
+              th:unless="${page.first}"
+              >上一页</a
+            >
+            <a
+              class="ui orange button m-next-button"
+              onclick="page(this)"
+              th:attr="data-page=${(page.number)+1}"
+              th:unless="${page.last}"
+              >下一页</a
+            >
           </div>
           <div class="right aligned column">
             <a href="#" class="ui green button m-next-button">添加文章</a>
@@ -210,6 +263,28 @@
       $(".ui.dropdown").dropdown({
         on: "hover",
       });
+
+      function page(obj) {
+        $("[name='page']").val($(obj).data("page"));
+        loaddata();
+      }
+
+      $("#search-btn").click(function () {
+        loaddata();
+      });
+
+      // 页面局部刷新，请求数据，AJAX请求
+      function loaddata() {
+        $("#table-container").load(
+          /*[[@{/admin/blog/search}]]*/ "/admin/blog/search",
+          {
+            title: $("[name='title']").val(),
+            typeId: $("[name='typeId']").val(),
+            recommend: $("[name='recommend']").val(),
+            page: $("[name='page']").val(),
+          }
+        );
+      }
     </script>
   </body>
 </html>

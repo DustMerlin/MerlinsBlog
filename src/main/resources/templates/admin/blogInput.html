@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -8,8 +8,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"
     />
-    <link rel="stylesheet" href="../css/allPageCss.css" />
-    <link rel="stylesheet" href="../lib/editormd/css/editormd.min.css" />
+    <link rel="stylesheet" href="../../static/css/allPageCss.css" />
+    <link
+      rel="stylesheet"
+      href="../../static/lib/editormd/css/editormd.min.css"
+    />
     <title>后台管理</title>
   </head>
   <body>
@@ -301,7 +304,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
-    <script src="../lib/editormd/editormd.min.js"></script>
+    <script src="../../static/lib/editormd/editormd.min.js"></script>
 
     <script>
       var testEditor;
@@ -311,7 +314,7 @@
           width: "100%",
           height: 640,
           syncScrolling: "single",
-          path: "../lib/editormd/lib/",
+          path: "../../static/lib/editormd/lib/",
         });
 
         /*
