@@ -14,6 +14,8 @@ public class Blog {
     private Long id;
 
     private String title;
+//    @Basic(fetch = FetchType.LAZY)  大字段，懒加载方式
+//    @Lob
     private String content;
     private String picture;
     private String flag;
@@ -197,6 +199,30 @@ public class Blog {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+//    public void init(){
+//        this.tagIds = tagsToIds(this.getTags());
+//    }
+//    将id 转换为 一个字符串进行存储
+//    private String tagsToIds(List<Tag> tags){
+//        if(!tags.isEmpty()){
+//            StringBuffer ids = new StringBuffer();
+//            boolean flag = false;
+//            for(Tag tag : tags){
+//                if(flag){
+//                    ids.append(",");
+//                } else {
+//                    flag = true;
+//                }
+//                ids.append(tag.getId());
+//            }
+//            return ids.toString();
+//        } else {
+//            return tagIds;
+//        }
+//    }
+
+
 
     @Override
     public String toString() {
